@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="../static/search.js"></script>
+  <title>My Finance Tracker</title>
+  <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-center">
+      <div class="search-bar">
+        <input type="text" name="search" id="search" placeholder="Search" onkeyup='searchFunction()' maxlength="25" />
+        <div class="searchingClass">
+          <div id="searchUL" class="searchUL">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-right">
+      <ul>
+        <li><a href="/"><img src="../static/Logo.jpg" alt="Home" width="100px" height="100px"></a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>Track your stocks and investments with ease</h1>
+      <p>
+        Whether you're a beginner or an experienced investor, our easy-to-use
+        platform makes it simple to track and analyze your investments.
+      </p>
+      <button id="anchorStart"onclick="input()">Get started</button>
+      <script>
+        const input = () =>{
+          const field = document.querySelector('input');
+          document.getElementById('anchorStart').style.display = 'none';
+          field.style.display = 'block'
+          field.focus() // focus the element
+        }
+      </script>
+    </section>
+
+    <section id="stock-ticker" class="stock-ticker">
+      <h2>Stock Ticker</h2>
+      <p>Enter the stock symbol you want to track:</p>
+      <div id ="form-row" class="form-row">
+        <select name="exchange" id="exchange">
+          <option value="" disabled selected>Choose an Exchange</option>
+          <option value="TO">Toronto</option>
+          <option value="NE">New York</option>
+          <option value="">Nasdaq</option>
+        </select>
+        <input type="text" id="symbol" name="symbol" placeholder="Enter Ticker Symbol">
+        <button type="submit" id="tickerSearch" onclick="getStock()">Search stock</button>
+      </div>
+      <ul>
+        <li><a href="#" type="button" id="get_AAPL" name="get_AAPL" value="AAPL" onclick="redirectCall('AAPL')">AAPL</a>
+        </li>
+        <li><a href="#" type="button" id="get_AMZN" name="get_AMZN" value="AMZN" onclick="redirectCall('AMZN')">AMZN</a>
+        </li>
+        <li><a href="#" type="button" id="get_GOOGL" name="get_GOOGL" value="GOOGL"
+            onclick="redirectCall('GOOGL')">GOOGL</a></li>
+
+      </ul>
+    </section>
+    <section class="market-summary">
+      <h2>Big Boi's Summary</h2>
+      <div class="market-summary-card">
+        <div class="market-summary-card-header">
+          <script>staticCall('SU.TO')</script>
+          <h3><a href="#" onclick="redirectCall('SU.TO')">Suncor</a></h3>
+          <p id="priceSU.TO"></p>
+          <div class="market-summary-card-body">
+            <p id="dayChangeSU.TO"></p>
+          </div>
+        </div>
+        <div class="market-summary-card-footer">
+          <p id="openSU.TO"></p>
+          <p id="dayHighSU.TO"></p>
+          <p id="dayLowSU.TO"></p>
+        </div>
+      </div>
+
+      <div class="market-summary-card">
+        <div class="market-summary-card-header">
+          <script>staticCall('MSFT')</script>
+          <h3><a href="#" onclick="redirectCall('MSFT')">Microsoft</a></h3>
+          <p id="priceMSFT"></p>
+          <div class="market-summary-card-body">
+            <p id="dayChangeMSFT"></p>
+          </div>
+        </div>
+        <div class="market-summary-card-footer">
+          <p id="openMSFT"></p>
+          <p id="dayHighMSFT"></p>
+          <p id="dayLowMSFT"></p>
+        </div>
+      </div>
+      <div class="market-summary-card">
+        <div class="market-summary-card-header">
+          <script>staticCall('RY.TO')</script>
+          <h3><a href="#" onclick="redirectCall('RY.TO')">Royal Bank of Canada</a></h3>
+          <p id="priceRY.TO"></p>
+          <div class="market-summary-card-body">
+            <p id="dayChangeRY.TO"></p>
+          </div>
+        </div>
+        <div class="market-summary-card-footer">
+          <p id="openRY.TO"></p>
+          <p id="dayHighRY.TO"></p>
+          <p id="dayLowRY.TO"></p>
+        </div>
+      </div>
+      <div class="market-summary-card">
+        <div class="market-summary-card-header">
+          <script>staticCall('BRK-B')</script>
+          <h3><a href="#" onclick="redirectCall('BRK-B')">Berkshire Hathaway Class B</a></h3>
+          <p id="priceBRK-B"></p>
+          <div class="market-summary-card-body">
+            <p id="dayChangeBRK-B"></p>
+          </div>
+        </div>
+        <div class="market-summary-card-footer">
+          <p id="openBRK-B"></p>
+          <p id="dayHighBRK-B"></p>
+          <p id="dayLowBRK-B"></p>
+        </div>
+      </div>
+      <div class="market-summary-card">
+        <div class="market-summary-card-header">
+          <script>staticCall('TSLA')</script>
+          <h3><a href="#" onclick="redirectCall('TSLA')">Tesla</a></h3>
+          <p id="priceTSLA"></p>
+          <div class="market-summary-card-body">
+            <p id="dayChangeTSLA"></p>
+          </div>
+        </div>
+        <div class="market-summary-card-footer">
+          <p id="openTSLA"></p>
+          <p id="dayHighTSLA"></p>
+          <p id="dayLowTSLA"></p>
+        </div>
+      </div>
+      <div class="market-summary-card">
+        <div class="market-summary-card-header">
+          <script>staticCall('BABA')</script>
+          <h3><a href="#" onclick="redirectCall('BABA')">Alibaba</a></h3>
+          <p id="priceBABA"></p>
+          <div class="market-summary-card-body">
+            <p id="dayChangeBABA"></p>
+          </div>
+        </div>
+        <div class="market-summary-card-footer">
+          <p id="openBABA"></p>
+          <p id="dayHighBABA"></p>
+          <p id="dayLowBABA"></p>
+        </div>
+      </div>
+    </section>
+
+    <footer style="float: right;">
+      <p>&copy; 2023 My Finance Tracker. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
