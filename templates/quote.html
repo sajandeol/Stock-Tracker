@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../static/search.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Quote</title>
+</head>
+
+<body>
+   <header>
+      <div class="header-center">
+        <div class="search-bar">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search"
+            onkeyup="searchFunction()"
+            maxlength="25"
+          />
+          <div class="searchingClass">
+            <ul id="searchUL" class="searchUL">
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="header-left">
+        <ul>
+          <li><a href="/"><img src="../static/Logo.jpg" alt="Home" width="100px" height="100px"></a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="chart-container">
+        <div class="chart-placeholder" id="chart">
+          <p id='chart' class='chart'”></p>
+        </div>
+      </section>
+
+      <div class="content-container">
+        <div class="content-box">
+          <h3>Market Details</h3>
+          <p id="lastPrice"><strong>Last Close:</strong></p>
+          <p id="dayChange"><strong>Day Change:</strong></p>
+          <p id="previousClose"></p>
+          <p id="exchange"><strong>Exchange:</strong></p>
+          <p id="marketCap"><strong>Market Cap:</strong></p>
+          <p id="dividends"><strong>Dividends:</strong></p>
+          <p id="dayHigh"><strong>Day High/Low:</strong></p>
+          <p id="volume"><strong>Volume:</strong></p>
+        </div>
+      </div>
+
+      <aside class="news-container">
+        <h2>News</h2>
+        <ul class="news-list" id="news-list"></ul>
+      </aside>
+    </main>
+
+    <footer style="text-align: center">
+      <p>&copy; 2023 My Finance Tracker. All rights reserved.</p>
+    </footer>
+      
+    <script>displayQuote()</script>
+        
+    </div>
+</body>
+
+</html>
