@@ -25,6 +25,7 @@ def callStock():
   
     #FOR YFINANCE API
     # .TO for TSE, .NE for New York, and nothing for Nasdaq
+    #Get users ticker input
     output = request.get_json()
     # this converts the json output to a python dictionary
     json_symbol = json.loads(output)
